@@ -1,4 +1,4 @@
-# liri-node-app
+# LIRI NODE APP!
 
 An application with capabilities of searching:
 * OMDB for movie details
