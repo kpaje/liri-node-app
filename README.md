@@ -1,18 +1,18 @@
 # liri-node-app
 
 An application with capabilities of searching:
--OMDB for movie details
--Spotify for song details
--Bands in Town for an upcoming concert
+* OMDB for movie details
+* Spotify for song details
+* Bands in Town for an upcoming concert
 
 ## NPM packages:
--dotenv
--bandsintown
--request
--fs
--moment
--inquirer
--node-spotify-api
+* dotenv
+* bandsintown
+* request
+* fs
+* moment
+* inquirer
+* node-spotify-api
 
 #### Bands in Town
 ![](http://g.recordit.co/oCeUQ0fsUf.gif)
