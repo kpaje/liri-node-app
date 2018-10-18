@@ -5,7 +5,7 @@ An application with capabilities of searching:
 -Spotify for song details
 -Bands in Town for an upcoming concert
 
-##NPM packages:
+## NPM packages:
 -dotenv
 -bandsintown
 -request
@@ -14,14 +14,14 @@ An application with capabilities of searching:
 -inquirer
 -node-spotify-api
 
-####Bands in Town
-![](http://recordit.co/oCeUQ0fsUf)
+#### Bands in Town
+![](http://g.recordit.co/oCeUQ0fsUf.gif)
 
-####Spotify
-![](http://recordit.co/rnUkVJ1Xlg)
+#### Spotify
+![](http://g.recordit.co/rnUkVJ1Xlg.gif)
 
-####OMDB
-![](http://recordit.co/kej1obJw94)
+#### OMDB
+![](http://g.recordit.co/kej1obJw94.gif)
 
-####Wild Card
-![](http://recordit.co/j49rOaDU2m)
+#### Wild Card
+![](http://g.recordit.co/j49rOaDU2m.gif)
