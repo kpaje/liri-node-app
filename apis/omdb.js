@@ -18,12 +18,15 @@ const omdb = {
 		console.log("Plot: " + JSON.parse(body).Plot);
 		console.log("Actors: " + JSON.parse(body).Actors);
 	},
+	runQuery: function(error, response, body) {
+		if (!error && response.statusCode === 200) {
+			omdb.logResults(body);
+		}
+	},
 	searchMovieTitle: function(inquirerResponse) {
 		request(omdb.queryUrl(inquirerResponse), function(error, response, body) {
 			checkForError(error);
-			if (!error && response.statusCode === 200) {
-				omdb.logResults(body);
-			}
+			omdb.runQuery(error, response, body);
 		});
 	}
 };

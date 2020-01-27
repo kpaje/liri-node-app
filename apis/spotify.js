@@ -18,14 +18,17 @@ const spotify = {
 			console.log("Release Date: " + songinfo.album.release_date),
 			console.log("Track Preview: " + songinfo.preview_url);
 	},
+	runQuery: function(error, data) {
+		var songinfo = data.tracks.items[0];
+		checkForError(error);
+		spotify.logResults(songinfo);
+	},
 	searchArtist: function(inquirerResponse) {
 		this.webAPI().search(spotify.params(inquirerResponse), function(
 			error,
 			data
 		) {
-			var songinfo = data.tracks.items[0];
-			checkForError(error);
-			spotify.logResults(songinfo);
+			spotify.runQuery(error, data);
 		});
 	}
 };
