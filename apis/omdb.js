@@ -2,10 +2,10 @@ import request from "request";
 import { checkForError } from "../utils";
 
 const omdb = {
-	queryUrl: function(inquirerResponse) {
+	queryUrl: function(userInput) {
 		return (
 			"http://www.omdbapi.com/?t=" +
-			inquirerResponse.search +
+			userInput.search +
 			"&y=&plot=short&apikey=trilogy"
 		);
 	},
@@ -23,8 +23,8 @@ const omdb = {
 			omdb.logResults(body);
 		}
 	},
-	searchMovieTitle: function(inquirerResponse) {
-		request(omdb.queryUrl(inquirerResponse), function(error, response, body) {
+	searchMovieTitle: function(userInput) {
+		request(omdb.queryUrl(userInput), function(error, response, body) {
 			checkForError(error);
 			omdb.runQuery(error, response, body);
 		});

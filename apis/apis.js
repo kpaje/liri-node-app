@@ -3,18 +3,20 @@ import spotify from "./spotify";
 import omdb from "./omdb";
 import wildcard from "./wildcard";
 
-export default function apis(inquirerResponse) {
-	if (inquirerResponse.command === "concert-this") {
-		bandsInTown.searchArtistEvents(inquirerResponse);
+function apis(userInput) {
+	if (userInput.command === "concert-this") {
+		bandsInTown.searchArtistEvents(userInput);
 	}
-	if (inquirerResponse.command === "spotify-this-song") {
-		spotify.searchArtist(inquirerResponse);
+	if (userInput.command === "spotify-this-song") {
+		spotify.searchArtist(userInput);
 	}
 
-	if (inquirerResponse.command === "movie-this") {
-		omdb.searchMovieTitle(inquirerResponse);
+	if (userInput.command === "movie-this") {
+		omdb.searchMovieTitle(userInput);
 	}
-	if (inquirerResponse.command === "wildcard") {
+	if (userInput.command === "wildcard") {
 		wildcard.getTroll();
 	}
 }
+
+export default apis;

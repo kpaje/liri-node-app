@@ -8,8 +8,8 @@ const spotify = {
 			secret: process.env.SPOTIFY_SECRET
 		});
 	},
-	params: function(inquirerResponse) {
-		return { type: "track", query: inquirerResponse.search, limit: 1 };
+	params: function(userInput) {
+		return { type: "track", query: userInput.search, limit: 1 };
 	},
 	logResults: function(songinfo) {
 		console.log("Artist: " + songinfo.artists[0].name),
@@ -23,11 +23,8 @@ const spotify = {
 		checkForError(error);
 		spotify.logResults(songinfo);
 	},
-	searchArtist: function(inquirerResponse) {
-		this.webAPI().search(spotify.params(inquirerResponse), function(
-			error,
-			data
-		) {
+	searchArtist: function(userInput) {
+		this.webAPI().search(spotify.params(userInput), function(error, data) {
 			spotify.runQuery(error, data);
 		});
 	}

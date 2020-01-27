@@ -12,17 +12,12 @@ const wildcard = {
 		console.log("Album: " + songinfo.album.name);
 		console.log("Track Preview: " + songinfo.preview_url);
 	},
-	runQuery: function(error, data) {
-		var songinfo = data.tracks.items[0];
-		checkForError(error);
-		wildcard.logResults(songinfo);
-	},
 	getTroll: function() {
 		fs.readFile("random.txt", "utf8", function(error, data) {
 			checkForError(error);
 			console.log("I'm sorry human, IiIIiiiIIii waaaant it thiiisss waaaay!");
 			spotify.webAPI().search(wildcard.params(data), function(error, data) {
-				wildcard.runQuery(error, data);
+				spotify.runQuery(error, data);
 			});
 		});
 	}
