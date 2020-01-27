@@ -1,7 +1,7 @@
 require("dotenv").config();
-var request = require("request");
+import request from "request";
 
-function omdbSearch(inquirerResponse) {
+export default function omdbSearch(inquirerResponse) {
   var queryUrl =
     "http://www.omdbapi.com/?t=" +
     inquirerResponse.search +
@@ -22,5 +22,3 @@ function omdbSearch(inquirerResponse) {
     }
   });
 }
-
-module.exports = omdbSearch;

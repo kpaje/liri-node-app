@@ -1,5 +1,5 @@
 var bandsintown = require("bandsintown")("codingbootcamp");
-var moment = require("moment");
+import moment from "moment";
 
 function bandsInTownSearch(inquirerResponse) {
   bandsintown

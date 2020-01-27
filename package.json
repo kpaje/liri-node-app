@@ -4,7 +4,9 @@
   "description": "",
   "main": "liri.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx babel-node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --presets es2015 -d lib/ liri-node-app"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,10 @@
     "moment": "^2.22.2",
     "node-spotify-api": "^1.1.1",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1"
   }
 }

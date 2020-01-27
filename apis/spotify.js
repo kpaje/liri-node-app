@@ -1,11 +1,15 @@
-var Spotify = require("node-spotify-api");
-var spotify = new Spotify({
-  id: process.env.SPOTIFY_ID,
-  secret: process.env.SPOTIFY_SECRET
-});
+require("dotenv").config();
 
-function spotifySearch(inquirerResponse) {
-  spotify.search(
+export function spotify() {
+  var Spotify = require("node-spotify-api");
+  return new Spotify({
+    id: process.env.SPOTIFY_ID,
+    secret: process.env.SPOTIFY_SECRET
+  });
+}
+
+export function spotifySearch(inquirerResponse) {
+  spotify().search(
     { type: "track", query: inquirerResponse.search, limit: 1 },
     function(err, data) {
       if (err) {
@@ -19,5 +23,3 @@ function spotifySearch(inquirerResponse) {
     }
   );
 }
-
-module.exports = spotifySearch;

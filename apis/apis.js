@@ -1,8 +1,8 @@
 require("dotenv").config();
-var bandsInTownSearch = require("./bandsInTown");
-var spotifySearch = require("./spotify");
-var omdbSearch = require("./omdb");
-var wildcard = require("./wildcard");
+import bandsInTownSearch from "./bandsInTown";
+import { spotifySearch } from "./spotify";
+import omdbSearch from "./omdb";
+import wildcard from "./wildcard";
 
 function apis(inquirerResponse) {
   if (inquirerResponse.command === "concert-this") {

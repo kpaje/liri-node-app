@@ -1,4 +1,4 @@
-var prompts = [
+const prompts = [
   {
     type: "list",
     message: "Please select a command",
@@ -12,4 +12,4 @@ var prompts = [
   }
 ];
 
-module.exports = prompts;
+export default prompts;
