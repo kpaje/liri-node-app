@@ -1,4 +1,3 @@
-require("dotenv").config();
 import fs from "fs";
 import spotify from "./spotify";
 import { checkForError } from "../utils";

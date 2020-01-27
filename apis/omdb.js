@@ -1,4 +1,3 @@
-require("dotenv").config();
 import request from "request";
 import { checkForError } from "../utils";
 

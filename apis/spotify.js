@@ -1,4 +1,3 @@
-require("dotenv").config();
 const Spotify = require("node-spotify-api");
 import { checkForError } from "../utils";
 

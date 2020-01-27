@@ -1,4 +1,3 @@
-require("dotenv").config();
 import bandsInTown from "./bandsInTown";
 import spotify from "./spotify";
 import omdb from "./omdb";
