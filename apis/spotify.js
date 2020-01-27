@@ -9,16 +9,20 @@ const spotify = {
       secret: process.env.SPOTIFY_SECRET
     });
   },
+  logResults: function(songinfo) {
+    console.log("Artist: " + songinfo.artists[0].name),
+      console.log("Title: " + songinfo.name),
+      console.log("Album: " + songinfo.album.name),
+      console.log("Release Date: " + songinfo.album.release_date),
+      console.log("Track Preview: " + songinfo.preview_url);
+  },
   searchArtist: function(inquirerResponse) {
     this.webAPI().search(
       { type: "track", query: inquirerResponse.search, limit: 1 },
       function(error, data) {
-        checkForError(error);
         var songinfo = data.tracks.items[0];
-        console.log("Artist: " + songinfo.artists[0].name);
-        console.log("Title: " + songinfo.name);
-        console.log("Album: " + songinfo.album.name);
-        console.log("Track Preview: " + songinfo.preview_url);
+        checkForError(error);
+        spotify.logResults(songinfo);
       }
     );
   }
