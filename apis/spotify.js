@@ -8,8 +8,14 @@ const spotify = {
 			secret: process.env.SPOTIFY_SECRET
 		});
 	},
-	params: function(userInput) {
-		return { type: "track", query: userInput.search, limit: 1 };
+	artistParams: function(userInput) {
+		return { type: "artist", query: userInput.search, limit: 5 };
+	},
+	albumParams: function(userInput) {
+		return { type: "album", query: userInput.search, limit: 5 };
+	},
+	trackParams: function(userInput) {
+		return { type: "track", query: userInput.search, limit: 5 };
 	},
 	logResults: function(songinfo) {
 		console.log("Artist: " + songinfo.artists[0].name),
@@ -23,8 +29,17 @@ const spotify = {
 		checkForError(error);
 		spotify.logResults(songinfo);
 	},
-	searchArtist: function(userInput) {
-		this.webAPI().search(spotify.params(userInput), function(error, data) {
+	request: function() {
+		//used to make API requests to any Spotify endpoint you supply
+		//can be found via data.href
+		this.webAPI()
+			.request("https://api.spotify.com/v1/tracks/7yCPwWs66K8Ba5lFuU2bcx")
+			.then(function(data) {
+				console.log(data);
+			});
+	},
+	search: function(userInput) {
+		this.webAPI().search(spotify.trackParams(userInput), function(error, data) {
 			spotify.runQuery(error, data);
 		});
 	}

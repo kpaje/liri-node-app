@@ -8,7 +8,7 @@ function apis(userInput) {
 		bandsInTown.searchArtistEvents(userInput);
 	}
 	if (userInput.command === "spotify-this-song") {
-		spotify.searchArtist(userInput);
+		spotify.search(userInput);
 	}
 
 	if (userInput.command === "movie-this") {
