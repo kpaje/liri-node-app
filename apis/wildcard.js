@@ -1,10 +1,10 @@
 require("dotenv").config();
+var fs = require("fs");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify({
   id: process.env.SPOTIFY_ID,
   secret: process.env.SPOTIFY_SECRET
 });
-var fs = require("fs");
 
 function wildcard() {
   fs.readFile("random.txt", "utf8", function(error, data) {

@@ -1,7 +1,7 @@
 var bandsintown = require("bandsintown")("codingbootcamp");
 var moment = require("moment");
 
-function bandsInTownSAearch(inquirerResponse) {
+function bandsInTownSearch(inquirerResponse) {
   bandsintown
     .getArtistEventList(inquirerResponse.search)
     .then(function(events) {
@@ -13,4 +13,4 @@ function bandsInTownSAearch(inquirerResponse) {
     });
 }
 
-module.exports = bandsInTownSAearch;
+module.exports = bandsInTownSearch;
