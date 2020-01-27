@@ -7,11 +7,11 @@ export default function omdbSearch(inquirerResponse) {
     inquirerResponse.search +
     "&y=&plot=short&apikey=trilogy";
 
-  request(queryUrl, function(err, response, body) {
-    if (err) {
-      return console.log("Error occurred: " + err);
+  request(queryUrl, function(error, response, body) {
+    if (error) {
+      return console.log("Error occurred: " + error);
     }
-    if (!err && response.statusCode === 200) {
+    if (!error && response.statusCode === 200) {
       console.log("Title: " + JSON.parse(body).Title);
       console.log("Release Year: " + JSON.parse(body).Year);
       console.log("IMBD Rating: " + JSON.parse(body).imdbRating);
