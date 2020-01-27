@@ -2,7 +2,7 @@
   "name": "liri-node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "liri.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,10 +19,10 @@
   "homepage": "https://github.com/kpaje/liri-node-app#readme",
   "dependencies": {
     "bandsintown": "^1.0.1",
-    "dotenv": "^6.1.0",
+    "dotenv": "^8.2.0",
     "inquirer": "^6.2.0",
     "moment": "^2.22.2",
-    "node-spotify-api": "^1.0.7",
+    "node-spotify-api": "^1.1.1",
     "request": "^2.88.0"
   }
 }
