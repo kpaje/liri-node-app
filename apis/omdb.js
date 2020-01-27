@@ -23,6 +23,13 @@ const omdb = {
 			"&type=series&apikey=trilogy"
 		);
 	},
+	queryTVSeason: function(userInput) {
+		return (
+			"http://www.omdbapi.com/?t=" +
+			userInput.search +
+			"&Season=1&apikey=trilogy"
+		);
+	},
 	queryTVEpisode: function(userInput) {
 		return (
 			"http://www.omdbapi.com/?s=" +
@@ -32,6 +39,12 @@ const omdb = {
 	},
 	logTVSeriesResults: function() {
 		console.log(JSON.parse(body).Search[0]);
+	},
+	logTVSeasonResults: function(body) {
+		console.log("Title: " + JSON.parse(body).Title);
+		console.log("Season: " + JSON.parse(body).Season);
+		console.log("TotalSeasons: " + JSON.parse(body).totalSeasons);
+		JSON.parse(body).Episodes.forEach(item => console.log(item));
 	},
 	logTVEpisodeResults: function(body) {
 		console.log(JSON.parse(body));
@@ -47,11 +60,11 @@ const omdb = {
 	},
 	runQuery: function(error, response, body) {
 		if (!error && response.statusCode === 200) {
-			omdb.logMovieResults(body);
+			omdb.logTVSeasonResults(body);
 		}
 	},
 	searchMovieTitle: function(userInput) {
-		request(omdb.queryMovieTitle(userInput), function(error, response, body) {
+		request(omdb.queryTVSeason(userInput), function(error, response, body) {
 			checkForError(error);
 			omdb.runQuery(error, response, body);
 		});
