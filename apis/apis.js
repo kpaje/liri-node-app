@@ -12,7 +12,7 @@ function apis(userInput) {
 	}
 
 	if (userInput.command === "movie-this") {
-		omdb.searchMovieTitle(userInput);
+		omdb.searchMovieTitle(userInput.search);
 	}
 	if (userInput.command === "wildcard") {
 		wildcard.getTroll();
