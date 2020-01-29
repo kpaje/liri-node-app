@@ -91,7 +91,11 @@ const omdb = {
     }
   },
   searchTitle: function(userInput) {
-    request(omdb.queryMovieTitle(userInput), function(error, response, body) {
+    request(omdb.queryMovieTitle(userInput.search), function(
+      error,
+      response,
+      body
+    ) {
       checkForError(error);
       omdb.runQuery(error, response, body);
     });
