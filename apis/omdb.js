@@ -1,6 +1,5 @@
 import request from "request";
-import { table } from "table";
-import chalk from "chalk";
+import tables from "../table/tables";
 import { checkForError } from "../utils";
 
 class OMDBQuery {
@@ -60,30 +59,7 @@ const omdb = {
     console.log(JSON.parse(body));
   },
   logMovieResults: function(body) {
-    let config, data, output;
-
-    data = [
-      [chalk.green("Title"), JSON.parse(body).Title],
-      [chalk.green("Release Year"), JSON.parse(body).Year],
-      [chalk.green("IMBD Rating"), JSON.parse(body).imdbRating],
-      [chalk.green("Country"), JSON.parse(body).Country],
-      [chalk.green("Language"), JSON.parse(body).Language],
-      [chalk.green("Plot"), JSON.parse(body).Plot],
-      [chalk.green("Actors"), JSON.parse(body).Actors]
-    ];
-
-    config = {
-      columns: {
-        1: {
-          width: 70,
-          truncate: 100,
-          wrapWord: true
-        }
-      }
-    };
-
-    output = table(data, config);
-    console.log(output);
+    tables.omdb(body);
   },
   runQuery: function(error, response, body) {
     if (!error && response.statusCode === 200) {

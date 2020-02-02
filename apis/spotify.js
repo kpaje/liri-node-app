@@ -1,5 +1,5 @@
 const Spotify = require("node-spotify-api");
-import createTable from "../tables/Table";
+import tables from "../table/tables";
 import { checkForError } from "../utils";
 
 const spotify = {
@@ -18,8 +18,8 @@ const spotify = {
   trackParams: function(userInput) {
     return { type: "track", query: userInput.search, limit: 5 };
   },
-  logResults: function(songinfo) {
-    createTable(songinfo);
+  logResults: function(results) {
+    tables.spotify(results);
   },
   runQuery: function(error, data) {
     var songinfo = data.tracks.items[0];
