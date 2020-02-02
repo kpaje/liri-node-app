@@ -1,6 +1,7 @@
 const Spotify = require("node-spotify-api");
 import params from "./params";
 import tables from "../../table/tables";
+import fs from "fs";
 import { checkForError } from "../../utils";
 
 const spotify = {
@@ -8,6 +9,18 @@ const spotify = {
     return new Spotify({
       id: process.env.SPOTIFY_ID,
       secret: process.env.SPOTIFY_SECRET
+    });
+  },
+  wildCard: function() {
+    fs.readFile("random.txt", "utf8", function(error, file) {
+      const spotifyWebApi = spotify.webAPI();
+      const parameters = params.track(file);
+      console.log("I'm sorry human, IiIIiiiIIii waaaant it thiiisss waaaay!");
+      checkForError(error);
+
+      spotifyWebApi.search(parameters, function(error, file) {
+        spotify.runQuery(error, file);
+      });
     });
   },
   logResults: function(results) {

@@ -1,7 +1,6 @@
 import bandsInTown from "./bandsInTown";
 import spotify from "./spotify/spotify";
 import omdb from "./omdb/omdb";
-import wildcard from "./wildcard";
 
 function apis(userInput) {
   if (userInput.command === "concert-this") {
@@ -15,7 +14,7 @@ function apis(userInput) {
     omdb.searchTitle(userInput);
   }
   if (userInput.command === "wildcard") {
-    wildcard.getTroll();
+    spotify.wildCard();
   }
 }
 
