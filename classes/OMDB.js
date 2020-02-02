@@ -1,4 +1,4 @@
-class OMDB {
+export class OMDB {
   constructor(type, userInput) {
     this.type = type;
     this.userInput = userInput;
@@ -32,7 +32,7 @@ class OMDB {
 }
 
 const queryMovieTitle = function(userInput) {
-  const movieTitle = new OMDB("movie", userInput);
+  const movieTitle = new OMDB("movie", userInput.search);
   return movieTitle.query();
 };
 
@@ -42,8 +42,8 @@ const queryTVSeries = function(userInput) {
 };
 
 const queryTVEpisode = function(userInput) {
-  const tvEpisode = new OMDB("episode", userInput);
+  const tvEpisode = new OMDB("episode", userInput.search);
   return tvEpisode.query();
 };
 
-export default OMDB;
+export { queryMovieTitle, queryTVSeries, queryTVEpisode };

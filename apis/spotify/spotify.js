@@ -29,7 +29,8 @@ const spotify = {
   },
   search: function(userInput) {
     const spotifyWebApi = this.webAPI();
-    const parameters = params.track(userInput);
+    const parameters = params.track(userInput.search);
+
     spotifyWebApi.search(parameters, function(error, data) {
       spotify.runQuery(error, data);
     });

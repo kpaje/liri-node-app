@@ -7,7 +7,7 @@ const prompts = [
   },
   {
     type: "input",
-    message: "What would you like to search?",
+    message: "What title would you like to search?",
     name: "search"
   }
 ];

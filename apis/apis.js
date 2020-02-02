@@ -1,6 +1,6 @@
 import bandsInTown from "./bandsInTown";
 import spotify from "./spotify/spotify";
-import omdb from "./omdb";
+import omdb from "./omdb/omdb";
 import wildcard from "./wildcard";
 
 function apis(userInput) {

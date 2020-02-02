@@ -26,15 +26,15 @@ const tables = {
     ];
     this.outputTable(data);
   },
-  omdbMovie: function(results) {
+  omdb: function(results) {
     let data = [
       [chalk.green("Title"), JSON.parse(results).Title],
       [chalk.green("Release Year"), JSON.parse(results).Year],
+      [chalk.green("Actors"), JSON.parse(results).Actors],
       [chalk.green("IMBD Rating"), JSON.parse(results).imdbRating],
       [chalk.green("Country"), JSON.parse(results).Country],
       [chalk.green("Language"), JSON.parse(results).Language],
-      [chalk.green("Plot"), JSON.parse(results).Plot],
-      [chalk.green("Actors"), JSON.parse(results).Actors]
+      [chalk.green("Plot"), JSON.parse(results).Plot]
     ];
     this.outputTable(data);
   },
