@@ -1,5 +1,5 @@
 import fs from "fs";
-import spotify from "./spotify";
+import spotify from "./spotify/spotify";
 import { checkForError } from "../utils";
 
 const wildcard = {

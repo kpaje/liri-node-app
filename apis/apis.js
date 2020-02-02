@@ -1,5 +1,5 @@
 import bandsInTown from "./bandsInTown";
-import spotify from "./spotify";
+import spotify from "./spotify/spotify";
 import omdb from "./omdb";
 import wildcard from "./wildcard";
 

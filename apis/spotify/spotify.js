@@ -1,6 +1,7 @@
 const Spotify = require("node-spotify-api");
-import tables from "../table/tables";
-import { checkForError } from "../utils";
+import params from "./params";
+import tables from "../../table/tables";
+import { checkForError } from "../../utils";
 
 const spotify = {
   webAPI: function() {
@@ -8,15 +9,6 @@ const spotify = {
       id: process.env.SPOTIFY_ID,
       secret: process.env.SPOTIFY_SECRET
     });
-  },
-  artistParams: function(userInput) {
-    return { type: "artist", query: userInput.search, limit: 5 };
-  },
-  albumParams: function(userInput) {
-    return { type: "album", query: userInput.search, limit: 5 };
-  },
-  trackParams: function(userInput) {
-    return { type: "track", query: userInput.search, limit: 5 };
   },
   logResults: function(results) {
     tables.spotify(results);
@@ -37,7 +29,7 @@ const spotify = {
   },
   search: function(userInput) {
     const spotifyWebApi = this.webAPI();
-    const parameters = spotify.trackParams(userInput);
+    const parameters = params.track(userInput);
     spotifyWebApi.search(parameters, function(error, data) {
       spotify.runQuery(error, data);
     });
