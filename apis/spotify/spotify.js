@@ -15,8 +15,8 @@ const spotify = {
     fs.readFile("random.txt", "utf8", function(error, file) {
       const spotifyWebApi = spotify.webAPI();
       const parameters = params.track(file);
-      console.log("I'm sorry human, IiIIiiiIIii waaaant it thiiisss waaaay!");
       checkForError(error);
+      console.log("I'm sorry human, IiIIiiiIIii waaaant it thiiisss waaaay!");
 
       spotifyWebApi.search(parameters, function(error, file) {
         spotify.runQuery(error, file);
