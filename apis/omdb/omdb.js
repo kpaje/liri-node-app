@@ -1,5 +1,5 @@
 import request from "request";
-import tables from "../../table/tables";
+import tables from "../table/tables";
 import { queryMovieTitle } from "../../classes/OMDB";
 import { checkForError } from "../../utils";
 

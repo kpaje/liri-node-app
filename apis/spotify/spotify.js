@@ -1,6 +1,6 @@
 const Spotify = require("node-spotify-api");
 import params from "./params";
-import tables from "../../table/tables";
+import tables from "../table/tables";
 import { checkForError } from "../../utils";
 
 const spotify = {
