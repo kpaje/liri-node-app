@@ -26,7 +26,7 @@ const tables = {
     ];
     this.outputTable(data);
   },
-  omdb: function(results) {
+  omdbMovie: function(results) {
     let data = [
       [chalk.green("Title"), JSON.parse(results).Title],
       [chalk.green("Release Year"), JSON.parse(results).Year],
@@ -35,6 +35,19 @@ const tables = {
       [chalk.green("Language"), JSON.parse(results).Language],
       [chalk.green("Plot"), JSON.parse(results).Plot],
       [chalk.green("Actors"), JSON.parse(results).Actors]
+    ];
+    this.outputTable(data);
+  },
+  omdbSeason: function(results) {
+    let data = [
+      [chalk.green("Title"), JSON.parse(results).Title],
+      [chalk.green("Season"), JSON.parse(results).Season],
+      [chalk.green("TotalSeasons"), JSON.parse(results).totalSeasons],
+      [
+        chalk.green("Episodes"),
+        JSON.parse(results).Episodes
+        // JSON.parse(results).Episodes.forEach(item => console.log(item))
+      ]
     ];
     this.outputTable(data);
   }
