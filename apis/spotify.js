@@ -1,6 +1,5 @@
 const Spotify = require("node-spotify-api");
-import { table } from "table";
-import chalk from "chalk";
+import createTable from "../tables/Table";
 import { checkForError } from "../utils";
 
 const spotify = {
@@ -20,28 +19,7 @@ const spotify = {
     return { type: "track", query: userInput.search, limit: 5 };
   },
   logResults: function(songinfo) {
-    let config, data, output;
-
-    data = [
-      [chalk.green("Artist"), songinfo.artists[0].name],
-      [chalk.green("Title"), songinfo.name],
-      [chalk.green("Album"), songinfo.album.name],
-      [chalk.green("Release Date"), songinfo.album.release_date],
-      [chalk.green("Track Preview"), songinfo.preview_url]
-    ];
-
-    config = {
-      columns: {
-        1: {
-          width: 70,
-          truncate: 100,
-          wrapWord: true
-        }
-      }
-    };
-
-    output = table(data, config);
-    console.log(output);
+    createTable(songinfo);
   },
   runQuery: function(error, data) {
     var songinfo = data.tracks.items[0];
