@@ -1,27 +1,11 @@
 import request from "request";
 import tables from "../table/tables";
+import OMDB from "../classes/OMDB";
 import { checkForError } from "../utils";
-
-class OMDBQuery {
-  constructor(type, userInput) {
-    this.type = type;
-    this.userInput = userInput;
-  }
-
-  query() {
-    return (
-      "http://www.omdbapi.com/?t=" +
-      `${this.userInput}` +
-      "&type=" +
-      `${this.type}` +
-      "&apikey=trilogy"
-    );
-  }
-}
 
 const omdb = {
   queryMovieTitle: function(userInput) {
-    const movie = new OMDBQuery("movie", userInput);
+    const movie = new OMDB("movie", userInput);
     return movie.query();
   },
   queryIMDBId: function(userInput) {
@@ -32,7 +16,7 @@ const omdb = {
     );
   },
   queryTVSeries: function(userInput) {
-    const tvSeries = new OMDBQuery("series", userInput);
+    const tvSeries = new OMDB("series", userInput);
     return tvSeries.query();
   },
   queryTVSeason: function(userInput) {
@@ -43,7 +27,7 @@ const omdb = {
     );
   },
   queryTVEpisode: function(userInput) {
-    const tvEpisode = new OMDBQuery("episode", userInput);
+    const tvEpisode = new OMDB("episode", userInput);
     return tvEpisode.query();
   },
   logTVSeriesResults: function() {
