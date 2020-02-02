@@ -7,6 +7,10 @@ const params = {
   },
   track: function(userInput) {
     return { type: "track", query: userInput, limit: 5 };
+  },
+  wildcard: function() {
+    const params = "I Want it That Way";
+    return { type: "track", query: params, limit: 5 };
   }
 };
 
