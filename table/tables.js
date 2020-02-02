@@ -11,6 +11,10 @@ const config = {
   }
 };
 
+function fontColor(text) {
+  return chalk.green(text);
+}
+
 const tables = {
   outputTable: function(data) {
     let output = table(data, config);
@@ -18,35 +22,37 @@ const tables = {
   },
   spotify: function(results) {
     let data = [
-      [chalk.green("Artist"), results.artists[0].name],
-      [chalk.green("Title"), results.name],
-      [chalk.green("Album"), results.album.name],
-      [chalk.green("Release Date"), results.album.release_date],
-      [chalk.green("Track Preview"), results.preview_url]
+      [fontColor("Artist"), results.artists[0].name],
+      [fontColor("Title"), results.name],
+      [fontColor("Album"), results.album.name],
+      [fontColor("Release Date"), results.album.release_date],
+      [fontColor("Track Preview"), results.preview_url]
     ];
     this.outputTable(data);
   },
   omdb: function(results) {
+    const item = JSON.parse(results);
     let data = [
-      [chalk.green("Title"), JSON.parse(results).Title],
-      [chalk.green("Release Year"), JSON.parse(results).Year],
-      [chalk.green("Actors"), JSON.parse(results).Actors],
-      [chalk.green("IMBD Rating"), JSON.parse(results).imdbRating],
-      [chalk.green("Country"), JSON.parse(results).Country],
-      [chalk.green("Language"), JSON.parse(results).Language],
-      [chalk.green("Plot"), JSON.parse(results).Plot]
+      [fontColor("Title"), item.Title],
+      [fontColor("Release Year"), item.Year],
+      [fontColor("Actors"), item.Actors],
+      [fontColor("IMBD Rating"), item.imdbRating],
+      [fontColor("Country"), item.Country],
+      [fontColor("Language"), item.Language],
+      [fontColor("Plot"), item.Plot]
     ];
     this.outputTable(data);
   },
   omdbSeason: function(results) {
+    const item = JSON.parse(results);
     let data = [
-      [chalk.green("Title"), JSON.parse(results).Title],
-      [chalk.green("Season"), JSON.parse(results).Season],
-      [chalk.green("TotalSeasons"), JSON.parse(results).totalSeasons],
+      [fontColor("Title"), item.Title],
+      [fontColor("Season"), item.Season],
+      [fontColor("TotalSeasons"), item.totalSeasons],
       [
-        chalk.green("Episodes"),
-        JSON.parse(results).Episodes
-        // JSON.parse(results).Episodes.forEach(item => console.log(item))
+        fontColor("Episodes"),
+        item.Episodes
+        // item.Episodes.forEach(item => console.log(item))
       ]
     ];
     this.outputTable(data);
